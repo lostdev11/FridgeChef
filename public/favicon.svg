@@ -1,0 +1,31 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fridge Body -->
+  <rect x="5" y="8" width="22" height="19" rx="2" fill="#10B981" stroke="#059669" stroke-width="0.5"/>
+  
+  <!-- Fridge Door -->
+  <rect x="6" y="9" width="20" height="17" rx="1.5" fill="#D1FAE5" stroke="#10B981" stroke-width="0.25"/>
+  
+  <!-- Fridge Handle -->
+  <rect x="23" y="12" width="1" height="8" rx="0.5" fill="#6B7280"/>
+  
+  <!-- Fridge Shelves -->
+  <line x1="7" y1="15" x2="25" y2="15" stroke="#10B981" stroke-width="0.5"/>
+  <line x1="7" y1="20" x2="25" y2="20" stroke="#10B981" stroke-width="0.5"/>
+  
+  <!-- Chef Hat -->
+  <ellipse cx="16" cy="4" rx="7" ry="2" fill="#FEF3C7" stroke="#F59E0B" stroke-width="0.25"/>
+  <path d="M 9 4 Q 16 1 23 4" stroke="#F59E0B" stroke-width="0.5" fill="none"/>
+  
+  <!-- Food Items -->
+  <!-- Carrot -->
+  <ellipse cx="9" cy="17" rx="1" ry="2" fill="#F97316" transform="rotate(-15 9 17)"/>
+  
+  <!-- Tomato -->
+  <circle cx="13" cy="17" r="1" fill="#EF4444"/>
+  
+  <!-- Cheese -->
+  <rect x="16" y="16" width="2" height="1.5" rx="0.25" fill="#FCD34D"/>
+  
+  <!-- Lettuce -->
+  <path d="M 20 16 Q 21 15 22 16 Q 21 17 20 16" fill="#22C55E"/>
+</svg> 

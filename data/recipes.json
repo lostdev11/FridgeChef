@@ -1,0 +1,289 @@
+[
+  {
+    "name": "Haitian Mac and Cheese",
+    "culture": "Haitian",
+    "servings": 4,
+    "cookTime": "45 min",
+    "ingredients": [
+      "8 oz pasta (penne or rigatoni)",
+      "1/2 tbsp unsalted butter",
+      "2 tbsp finely chopped onion",
+      "1/3 cup sliced red and yellow bell peppers",
+      "1 clove garlic, minced",
+      "6 oz evaporated milk",
+      "1/4 cup mayonnaise",
+      "3/4 cup shredded Gouda cheese",
+      "1/4 cup grated Parmesan cheese",
+      "Salt",
+      "Black pepper"
+    ],
+    "instructions": [
+      "Melt butter in skillet over medium heat. Add onions and sauté for 1-2 mins.",
+      "Add bell peppers and cook 3-4 mins until tender.",
+      "Add garlic and sauté 1-2 mins until fragrant. Remove from heat.",
+      "Preheat oven to 350°F and grease a baking dish with butter.",
+      "Cook pasta in salted water as per package. Drain and return to hot pot.",
+      "Stir in cooked veggies, evaporated milk, mayonnaise, Gouda, and Parmesan. Season with salt and pepper.",
+      "Transfer mixture to baking dish and top with extra cheese.",
+      "Bake for 20–25 mins until golden. Broil 2–3 mins if you want a crispy top.",
+      "Let cool 10 mins before serving."
+    ],
+    "notes": [
+      "To make homemade evaporated milk: simmer 1.5 cups full-fat milk for 25–30 mins until reduced.",
+      "Store leftovers in an airtight container in the fridge for 3–4 days.",
+      "Reheat with a splash of milk or cream in microwave or stovetop.",
+      "Best enjoyed fresh – not ideal for making ahead."
+    ],
+    "image": "https://www.damnspicy.com/wp-content/uploads/2022/12/haitian-mac-and-cheese-6-819x1024.jpg",
+    "source": "https://www.damnspicy.com/haitian-mac-and-cheese/"
+  },
+  {
+    "name": "Haitian-Style Spaghetti",
+    "culture": "Haitian",
+    "servings": 8,
+    "calories": 446,
+    "cookTime": "25 min",
+    "ingredients": [
+      "1 pack kielbasa sausage",
+      "1 onion, sliced",
+      "1 bell pepper",
+      "1/4 cup fresh parsley, chopped",
+      "6 sprigs fresh thyme",
+      "3 garlic cloves, minced",
+      "2 tbsp olive oil",
+      "1 box spaghetti",
+      "9 tbsp tomato paste",
+      "2 cups pasta water",
+      "Salt",
+      "Black pepper",
+      "2 tbsp Haitian Epis"
+    ],
+    "instructions": [
+      "Slice the sausage, onion, and bell pepper. Chop parsley and thyme. Mince garlic. Set all aside.",
+      "Cook the pasta al dente according to box instructions.",
+      "In a large pan over medium heat, cook the sausage. Remove and set aside.",
+      "In the same pan, add bell pepper, half the onions, and garlic. Cook for 1 minute, stirring constantly.",
+      "Add tomato paste and 1/4 cup pasta water to break it down. Add cooked sausage. Stir to combine.",
+      "Reduce heat to low. Add pasta, Haitian Epis, salt and pepper, parsley, thyme, and remaining pasta water. Mix well.",
+      "Cover and let cook for 2 minutes. Serve hot."
+    ],
+    "notes": [
+      "Spaghetti, linguine, or vermicelli are best for this dish. Avoid angel hair pasta.",
+      "Use pasta water to add moisture and dissolve tomato paste.",
+      "Fresh herbs preferred, but dry herbs also work."
+    ],
+    "nutrition": {
+      "calories": 446,
+      "carbohydrates": "75g",
+      "protein": "19g",
+      "fat": "6g",
+      "sodium": "186mg",
+      "potassium": "1668mg",
+      "fiber": "9g",
+      "sugar": "23g",
+      "vitaminA": "435IU",
+      "vitaminC": "2031mg",
+      "calcium": "8mg",
+      "iron": "39mg"
+    },
+    "image": null,
+    "source": "https://www.savorythoughts.com/quick-easy-haitian-style-spaghetti/"
+  },
+  {
+    "name": "No-Fuss Avocado Onion Salad",
+    "culture": "International",
+    "servings": 4,
+    "calories": 147,
+    "cookTime": "10 min",
+    "ingredients": [
+      "3 medium ripe avocados, peeled and thinly sliced",
+      "1 large sweet onion, halved and thinly sliced",
+      "1/3 cup olive oil",
+      "1/4 cup stone-ground mustard",
+      "2 tablespoons lemon juice",
+      "1 tablespoon honey"
+    ],
+    "instructions": [
+      "Arrange avocado and onion slices on a large platter.",
+      "In a small bowl, whisk together olive oil, mustard, lemon juice, and honey.",
+      "Drizzle the dressing over the salad.",
+      "Serve immediately."
+    ],
+    "notes": [
+      "Best served fresh—avoid storing for long as avocados brown quickly.",
+      "Great as a light side or refreshing appetizer."
+    ],
+    "nutrition": {
+      "calories": 147,
+      "fat": "13g",
+      "saturatedFat": "2g",
+      "cholesterol": "0mg",
+      "sodium": "108mg",
+      "carbohydrates": "8g",
+      "sugar": "3g",
+      "fiber": "3g",
+      "protein": "1g"
+    },
+    "image": null,
+    "source": "https://www.tasteofhome.com/recipes/no-fuss-avocado-onion-salad/"
+  },
+  {
+    "name": "Cuban Sandwich",
+    "culture": "Hispanic",
+    "servings": 4,
+    "calories": 520,
+    "cookTime": "15 min",
+    "ingredients": [
+      "4 Cuban bread rolls",
+      "1/2 lb roasted pork, thinly sliced",
+      "1/2 lb ham, thinly sliced",
+      "1/2 lb Swiss cheese, thinly sliced",
+      "Dill pickles, sliced",
+      "Mustard",
+      "Butter for grilling"
+    ],
+    "instructions": [
+      "Split the Cuban bread rolls lengthwise.",
+      "Spread mustard on both sides of each roll.",
+      "Layer ham, roasted pork, Swiss cheese, and pickles on the bottom half.",
+      "Close the sandwich and press firmly.",
+      "Butter the outside of the sandwich and grill on a panini press or skillet until golden and cheese melts.",
+      "Cut diagonally and serve hot."
+    ],
+    "notes": [
+      "Traditional Cuban bread is best, but any crusty roll works.",
+      "The key is pressing the sandwich to compress the layers.",
+      "Serve with plantain chips for authenticity."
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": "35g",
+      "fat": "22g",
+      "carbohydrates": "45g",
+      "fiber": "2g",
+      "sugar": "3g"
+    },
+    "image": null,
+    "source": "Traditional Cuban recipe"
+  },
+  {
+    "name": "Authentic Choripán with Chimichurri",
+    "culture": "Argentinian",
+    "servings": 6,
+    "calories": 380,
+    "cookTime": "20 min",
+    "ingredients": [
+      "6 chorizo sausages",
+      "6 crusty bread rolls",
+      "1/2 cup fresh parsley, finely chopped",
+      "1/4 cup fresh oregano, finely chopped",
+      "4 garlic cloves, minced",
+      "1/4 cup red wine vinegar",
+      "1/2 cup olive oil",
+      "1/2 tsp red pepper flakes",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "For chimichurri: Mix parsley, oregano, garlic, vinegar, olive oil, red pepper flakes, salt, and pepper in a bowl. Let sit for 30 minutes.",
+      "Grill chorizo sausages until cooked through and slightly charred.",
+      "Split the bread rolls and toast them lightly.",
+      "Place a chorizo in each roll and top generously with chimichurri sauce.",
+      "Serve immediately while hot."
+    ],
+    "notes": [
+      "Chimichurri can be made ahead and stored in the refrigerator for up to a week.",
+      "Traditional choripán uses Argentine chorizo, but any spicy sausage works.",
+      "Best served with a cold beer or mate."
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": "18g",
+      "fat": "28g",
+      "carbohydrates": "22g",
+      "fiber": "2g",
+      "sugar": "1g"
+    },
+    "image": null,
+    "source": "Traditional Argentinian recipe"
+  },
+  {
+    "name": "Venezuelan Avocado Chicken Salad",
+    "culture": "Venezuelan",
+    "servings": 4,
+    "calories": 320,
+    "cookTime": "15 min",
+    "ingredients": [
+      "2 cups cooked chicken breast, shredded",
+      "2 ripe avocados, mashed",
+      "1/4 cup mayonnaise",
+      "1/4 cup sour cream",
+      "1/4 cup red onion, finely diced",
+      "1/4 cup fresh cilantro, chopped",
+      "2 tbsp lime juice",
+      "1 tsp garlic powder",
+      "Salt and black pepper to taste",
+      "4 lettuce leaves for serving"
+    ],
+    "instructions": [
+      "In a large bowl, combine shredded chicken and mashed avocados.",
+      "Add mayonnaise, sour cream, red onion, cilantro, lime juice, and garlic powder.",
+      "Mix well until all ingredients are combined.",
+      "Season with salt and black pepper to taste.",
+      "Serve on lettuce leaves or as a sandwich filling."
+    ],
+    "notes": [
+      "This salad is perfect for using leftover chicken.",
+      "The avocado adds creaminess and healthy fats.",
+      "Can be served as a main dish or as a filling for arepas."
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": "25g",
+      "fat": "22g",
+      "carbohydrates": "8g",
+      "fiber": "6g",
+      "sugar": "2g"
+    },
+    "image": null,
+    "source": "Traditional Venezuelan recipe"
+  },
+  {
+    "name": "Venezuelan Arepas",
+    "culture": "Venezuelan",
+    "servings": 8,
+    "calories": 180,
+    "cookTime": "30 min",
+    "ingredients": [
+      "2 cups pre-cooked white cornmeal (harina PAN)",
+      "2 1/2 cups warm water",
+      "1 tsp salt",
+      "1 tbsp vegetable oil",
+      "Butter or oil for cooking"
+    ],
+    "instructions": [
+      "In a large bowl, mix cornmeal, warm water, salt, and vegetable oil.",
+      "Knead the dough for 3-5 minutes until smooth and pliable.",
+      "Let the dough rest for 10 minutes.",
+      "Divide dough into 8 equal portions and shape into balls.",
+      "Flatten each ball into a disc about 1/2 inch thick.",
+      "Heat a griddle or skillet over medium heat and grease with butter or oil.",
+      "Cook arepas for 5-7 minutes on each side until golden brown and cooked through.",
+      "Split open and fill with your favorite ingredients."
+    ],
+    "notes": [
+      "Pre-cooked white cornmeal (harina PAN) is essential for authentic arepas.",
+      "Arepas can be filled with cheese, meat, beans, or any combination.",
+      "Leftover arepas can be reheated in a toaster or oven."
+    ],
+    "nutrition": {
+      "calories": 180,
+      "protein": "4g",
+      "fat": "3g",
+      "carbohydrates": "35g",
+      "fiber": "3g",
+      "sugar": "0g"
+    },
+    "image": null,
+    "source": "Traditional Venezuelan recipe"
+  }
+] 

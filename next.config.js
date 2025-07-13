@@ -13,6 +13,7 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   basePath: process.env.NODE_ENV === 'production' ? '/FridgeChef' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/FridgeChef/' : '',
 }
 
 module.exports = nextConfig 

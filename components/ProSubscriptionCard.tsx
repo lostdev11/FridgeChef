@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Check, Star, Zap, Lock, Heart, Calendar, Users } from "lucide-react"
+import { useState } from "react"
 
 const subscriptionPlans = [
   {
@@ -19,8 +20,10 @@ const subscriptionPlans = [
   },
   {
     name: "Pro",
-    price: "$9.99",
+    price: "$2.99",
     period: "per month",
+    yearlyPrice: "$25",
+    yearlyPeriod: "per year",
     features: [
       "Unlimited recipe searches",
       "Save unlimited recipes",
@@ -35,8 +38,10 @@ const subscriptionPlans = [
   },
   {
     name: "Family",
-    price: "$19.99",
+    price: "$25",
     period: "per month",
+    yearlyPrice: "$35",
+    yearlyPeriod: "per year",
     features: [
       "Everything in Pro",
       "Up to 6 family members",
@@ -51,6 +56,8 @@ const subscriptionPlans = [
 ]
 
 export default function ProSubscriptionCard() {
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly')
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="text-center mb-12">
@@ -60,6 +67,33 @@ export default function ProSubscriptionCard() {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Start cooking smarter with FridgeChef. Choose the plan that fits your cooking style.
         </p>
+        
+        {/* Billing Toggle */}
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <span className={`text-sm font-medium ${billingCycle === 'monthly' ? 'text-gray-900' : 'text-gray-500'}`}>
+            Monthly
+          </span>
+          <button
+            onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+              billingCycle === 'yearly' ? 'bg-purple-600' : 'bg-gray-200'
+            }`}
+          >
+            <span
+              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                billingCycle === 'yearly' ? 'translate-x-6' : 'translate-x-1'
+              }`}
+            />
+          </button>
+          <span className={`text-sm font-medium ${billingCycle === 'yearly' ? 'text-gray-900' : 'text-gray-500'}`}>
+            Yearly
+            {billingCycle === 'yearly' && (
+              <span className="ml-2 inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                Save
+              </span>
+            )}
+          </span>
+        </div>
       </div>
 
       <div className="grid gap-8 md:grid-cols-3">
@@ -86,8 +120,28 @@ export default function ProSubscriptionCard() {
                 {plan.name}
               </CardTitle>
               <div className="mt-4">
-                <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                <span className="text-gray-600 ml-2">{plan.period}</span>
+                {plan.name === "Free" ? (
+                  <div>
+                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                    <span className="text-gray-600 ml-2">{plan.period}</span>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="mb-2">
+                      <span className="text-4xl font-bold text-gray-900">
+                        {billingCycle === 'monthly' ? plan.price : plan.yearlyPrice}
+                      </span>
+                      <span className="text-gray-600 ml-2">
+                        {billingCycle === 'monthly' ? plan.period : plan.yearlyPeriod}
+                      </span>
+                    </div>
+                    {billingCycle === 'yearly' && (
+                      <div className="text-xs text-green-600 font-medium">
+                        Save with yearly billing
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </CardHeader>
 

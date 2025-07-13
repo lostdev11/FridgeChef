@@ -1,8 +1,8 @@
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Check, Star, Zap, Lock, Heart, Calendar, Users } from "lucide-react"
-import { useState } from "react"
 
 const subscriptionPlans = [
   {
@@ -38,7 +38,7 @@ const subscriptionPlans = [
   },
   {
     name: "Family",
-    price: "$25",
+    price: "$6",
     period: "per month",
     yearlyPrice: "$35",
     yearlyPeriod: "per year",
@@ -56,7 +56,7 @@ const subscriptionPlans = [
 ]
 
 export default function ProSubscriptionCard() {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly')
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
@@ -64,12 +64,12 @@ export default function ProSubscriptionCard() {
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Choose Your Plan
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
           Start cooking smarter with FridgeChef. Choose the plan that fits your cooking style.
         </p>
         
         {/* Billing Toggle */}
-        <div className="mt-8 flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 mb-8">
           <span className={`text-sm font-medium ${billingCycle === 'monthly' ? 'text-gray-900' : 'text-gray-500'}`}>
             Monthly
           </span>
@@ -88,7 +88,7 @@ export default function ProSubscriptionCard() {
           <span className={`text-sm font-medium ${billingCycle === 'yearly' ? 'text-gray-900' : 'text-gray-500'}`}>
             Yearly
             {billingCycle === 'yearly' && (
-              <span className="ml-2 inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+              <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                 Save
               </span>
             )}
@@ -100,22 +100,22 @@ export default function ProSubscriptionCard() {
         {subscriptionPlans.map((plan, index) => (
           <Card 
             key={plan.name}
-            className={`relative overflow-hidden transition-all duration-300 hover:shadow-xl ${
+            className={`relative overflow-visible transition-all duration-300 hover:shadow-xl flex flex-col h-full min-h-[520px] ${
               plan.popular 
                 ? 'ring-2 ring-purple-500 shadow-lg scale-105' 
                 : 'hover:scale-105'
             }`}
           >
             {plan.popular && (
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <Badge className="bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                <Badge className="bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg">
                   <Star className="w-3 h-3 mr-1" />
                   Most Popular
                 </Badge>
               </div>
             )}
 
-            <CardHeader className="text-center pb-4">
+            <CardHeader className={`text-center pb-4 ${plan.popular ? 'pt-8' : 'pt-6'}`}>
               <CardTitle className="text-2xl font-bold text-gray-900">
                 {plan.name}
               </CardTitle>
@@ -127,17 +127,24 @@ export default function ProSubscriptionCard() {
                   </div>
                 ) : (
                   <div>
-                    <div className="mb-2">
-                      <span className="text-4xl font-bold text-gray-900">
-                        {billingCycle === 'monthly' ? plan.price : plan.yearlyPrice}
-                      </span>
-                      <span className="text-gray-600 ml-2">
-                        {billingCycle === 'monthly' ? plan.period : plan.yearlyPeriod}
-                      </span>
-                    </div>
-                    {billingCycle === 'yearly' && (
-                      <div className="text-xs text-green-600 font-medium">
-                        Save with yearly billing
+                    <span className="text-4xl font-bold text-gray-900">
+                      {billingCycle === 'monthly' ? plan.price : plan.yearlyPrice}
+                    </span>
+                    <span className="text-gray-600 ml-2">
+                      {billingCycle === 'monthly' ? plan.period : plan.yearlyPeriod}
+                    </span>
+                    {billingCycle === 'yearly' && plan.name === "Pro" && (
+                      <div className="mt-2">
+                        <span className="text-sm text-green-600 font-medium">
+                          Save $10.88/year
+                        </span>
+                      </div>
+                    )}
+                    {billingCycle === 'yearly' && plan.name === "Family" && (
+                      <div className="mt-2">
+                        <span className="text-sm text-green-600 font-medium">
+                          Save $37/year
+                        </span>
                       </div>
                     )}
                   </div>
@@ -145,8 +152,8 @@ export default function ProSubscriptionCard() {
               </div>
             </CardHeader>
 
-            <CardContent className="space-y-4">
-              <ul className="space-y-3">
+            <CardContent className="flex flex-col flex-1 space-y-4">
+              <ul className="space-y-3 flex-1">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -155,7 +162,7 @@ export default function ProSubscriptionCard() {
                 ))}
               </ul>
 
-              <div className="pt-4">
+              <div className="pt-4 mt-auto">
                 {plan.comingSoon ? (
                   <Button 
                     disabled 

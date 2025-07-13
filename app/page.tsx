@@ -9,8 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { ChefHat, Search, Clock, Calculator, Lock, Github, Shield, Zap, Send, Loader2, Globe } from "lucide-react"
+import Image from "next/image"
 import ExternalRecipeCard from "@/components/ExternalRecipeCard"
-import RecipeSearchDemo from "@/components/RecipeSearchDemo"
+import RecipeSearchDemo, { SPOONACULAR_CREDIT } from "@/components/RecipeSearchDemo"
 import ProSubscriptionCard from "@/components/ProSubscriptionCard"
 
 const quickIngredients = [
@@ -194,8 +195,14 @@ export default function Home() {
       <section className="px-4 py-16 text-center">
         <div className="mx-auto max-w-4xl">
           <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-green-100 p-4">
-              <ChefHat className="h-12 w-12 text-green-600" />
+            <div className="rounded-full bg-green-100 p-2">
+              <Image
+                src="/Fridge chef circle icon.png"
+                alt="FridgeChef Logo"
+                width={64}
+                height={64}
+                className="h-16 w-16 object-cover rounded-full"
+              />
             </div>
           </div>
           <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-6xl">
@@ -216,8 +223,7 @@ export default function Home() {
       <section className={`px-4 py-16 transition-all duration-500 ${showIngredientInput ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">🔍 What&apos;s in your fridge?</h2>
-          
-          <RecipeSearchDemo />
+          {showIngredientInput && <RecipeSearchDemo />}
 
           {/* Chat-style input */}
           <form onSubmit={handleSubmitIngredients} className="mb-6">
@@ -467,6 +473,11 @@ export default function Home() {
 
       {/* Pro Subscription Section */}
       <ProSubscriptionCard />
+
+      {/* Spoonacular Credit at the bottom */}
+      <div className="w-full flex justify-center py-4">
+        <span className="text-xs text-gray-400 italic">{SPOONACULAR_CREDIT}</span>
+      </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 px-4 py-12 text-white">

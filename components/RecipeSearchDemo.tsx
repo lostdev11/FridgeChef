@@ -3,24 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ChefHat, Search, Globe, Zap } from 'lucide-react';
 
+export const SPOONACULAR_CREDIT = 'Powered by Spoonacular API';
+
 export default function RecipeSearchDemo() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-6 mb-8">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-green-100 rounded-full">
-            <Globe className="h-5 w-5 text-green-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">🌐 External Recipe Search</h3>
-            <p className="text-sm text-gray-600">Powered by Spoonacular API</p>
-          </div>
-        </div>
-        <Badge className="bg-green-100 text-green-800">New Feature</Badge>
-      </div>
-
+      {/* Removed heading and credit from here */}
       <div className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-lg border border-green-200">

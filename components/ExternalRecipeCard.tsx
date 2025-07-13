@@ -217,6 +217,18 @@ export default function ExternalRecipeCard({ recipe, userIngredients }: External
           >
             View Full Recipe
           </button>
+          
+          {/* Pro Save Recipe Button */}
+          <button 
+            onClick={() => {
+              // This would be connected to a pro user's saved recipes
+              alert('Save recipe feature coming soon with FridgeChef Pro!');
+            }}
+            className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2"
+          >
+            <Heart className="w-4 h-4" />
+            Save Recipe (Pro)
+          </button>
         </div>
       </div>
 
@@ -383,11 +395,11 @@ export default function ExternalRecipeCard({ recipe, userIngredients }: External
                 <button
                   onClick={() => {
                     // Here you could add functionality to save recipe, share, etc.
-                    alert('Recipe saved to favorites! (Feature coming soon)');
+                    alert('Save recipe feature coming soon with FridgeChef Pro! Upgrade to save unlimited recipes and access them anytime.');
                   }}
-                  className="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium"
+                  className="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium"
                 >
-                  Save Recipe
+                  Save Recipe (Pro)
                 </button>
               </div>
             </div>

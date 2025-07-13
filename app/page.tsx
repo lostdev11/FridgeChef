@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { ChefHat, Search, Clock, Calculator, Lock, Github, Shield, Zap, Send, Loader2, Globe } from "lucide-react"
 import ExternalRecipeCard from "@/components/ExternalRecipeCard"
 import RecipeSearchDemo from "@/components/RecipeSearchDemo"
+import ProSubscriptionCard from "@/components/ProSubscriptionCard"
 
 const quickIngredients = [
   "Chicken",
@@ -96,6 +97,7 @@ export default function Home() {
   const [externalRecipes, setExternalRecipes] = useState<ExternalRecipe[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [searchError, setSearchError] = useState<string | null>(null)
+  const [showIngredientInput, setShowIngredientInput] = useState(false)
   const [tdeeData, setTdeeData] = useState<TDEEData>({
     age: "",
     weight: "",
@@ -200,14 +202,18 @@ export default function Home() {
             Fridge<span className="text-green-600">Chef</span>
           </h1>
           <p className="mb-8 text-xl text-gray-600 md:text-2xl">Cook smarter with what you already have.</p>
-          <Button size="lg" className="rounded-full bg-green-600 px-8 py-3 text-lg hover:bg-green-700">
+          <Button 
+            size="lg" 
+            className="rounded-full bg-green-600 px-8 py-3 text-lg hover:bg-green-700"
+            onClick={() => setShowIngredientInput(true)}
+          >
             Start Cooking
           </Button>
         </div>
       </section>
 
       {/* Ingredient Entry Section */}
-      <section className="px-4 py-16">
+      <section className={`px-4 py-16 transition-all duration-500 ${showIngredientInput ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">🔍 What&apos;s in your fridge?</h2>
           
@@ -459,44 +465,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pro Feature Preview */}
-      <section className="bg-gray-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <Card className="relative overflow-hidden rounded-2xl border-0 shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10" />
-            <CardHeader className="relative">
-              <div className="flex items-center justify-between">
-                <CardTitle className="flex items-center text-xl">
-                  <Zap className="mr-2 h-5 w-5 text-purple-600" />
-                  FridgeChef Pro Features
-                </CardTitle>
-                <Badge className="rounded-full bg-purple-100 text-purple-800">Coming Soon</Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="relative space-y-6">
-              <div>
-                <Label htmlFor="calorie-goal" className="text-gray-700">
-                  Daily Calorie Goal
-                </Label>
-                <div className="relative">
-                  <Input id="calorie-goal" placeholder="2000" disabled className="rounded-xl bg-gray-100" />
-                  <Lock className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-                </div>
-              </div>
-
-              <div className="text-center">
-                <Button disabled className="rounded-full bg-purple-600 px-8 hover:bg-purple-700">
-                  <Lock className="mr-2 h-4 w-4" />
-                  Unlock with FridgeChef Pro
-                </Button>
-                <p className="mt-2 text-sm text-gray-600">
-                  Get personalized calorie tracking, meal planning, and more!
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      {/* Pro Subscription Section */}
+      <ProSubscriptionCard />
 
       {/* Footer */}
       <footer className="bg-gray-900 px-4 py-12 text-white">

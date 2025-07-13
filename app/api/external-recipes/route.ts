@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic';
+
 interface ExternalRecipe {
   id: number;
   title: string;

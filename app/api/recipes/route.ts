@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import recipesData from '../../../data/recipes.json';
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic';
+
 interface Recipe {
   name: string;
   culture: string;

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import recipesData from '../../../data/recipes.json';
+import { ingredientsMatch, normalizeIngredientName } from '../../../lib/ingredient-database';
 
 // Force dynamic rendering for this API route
 export const dynamic = 'force-dynamic';
@@ -33,7 +34,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Ingredients parameter is required' }, { status: 400 });
   }
 
-  const userIngredients = ingredients.split(',').map(ing => ing.trim().toLowerCase());
+  const userIngredients = ingredients.split(',').map(ing => normalizeIngredientName(ing.trim()));
   const recipes = recipesData as Recipe[];
 
   // Filter by culture if specified
@@ -47,28 +48,24 @@ export async function GET(request: NextRequest) {
   const matches: MatchResult[] = [];
 
   filteredRecipes.forEach(recipe => {
-    const recipeIngredients = recipe.ingredients.map(ing => ing.toLowerCase());
+    const recipeIngredients = recipe.ingredients;
     const missingIngredients: string[] = [];
     let matchedIngredients = 0;
 
-    // Check each recipe ingredient against user ingredients
+    // Check each recipe ingredient against user ingredients using enhanced matching
     recipeIngredients.forEach(recipeIngredient => {
-      const hasMatch = userIngredients.some(userIngredient => {
-        // Check if user ingredient is contained in recipe ingredient or vice versa
-        return recipeIngredient.includes(userIngredient) || 
-               userIngredient.includes(recipeIngredient) ||
-               // Handle common variations
-               recipeIngredient.includes(userIngredient.replace('s', '')) ||
-               userIngredient.includes(recipeIngredient.replace('s', ''));
-      });
+      const hasMatch = userIngredients.some(userIngredient => 
+        ingredientsMatch(userIngredient, recipeIngredient)
+      );
 
       if (hasMatch) {
         matchedIngredients++;
       } else {
         // Extract the main ingredient name (before any measurements)
         const mainIngredient = recipeIngredient.split(' ').slice(1).join(' ') || recipeIngredient;
-        if (!missingIngredients.includes(mainIngredient)) {
-          missingIngredients.push(mainIngredient);
+        const normalizedMainIngredient = normalizeIngredientName(mainIngredient);
+        if (!missingIngredients.includes(normalizedMainIngredient)) {
+          missingIngredients.push(normalizedMainIngredient);
         }
       }
     });

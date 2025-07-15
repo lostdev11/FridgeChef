@@ -7,27 +7,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { ChefHat, Search, Clock, Calculator, Lock, Github, Shield, Zap, Send, Loader2, Globe } from "lucide-react"
+import { ChefHat, Search, Clock, Calculator, Lock, Github, Shield, Zap, Loader2, Globe } from "lucide-react"
 import Image from "next/image"
 import ExternalRecipeCard from "@/components/ExternalRecipeCard"
 import RecipeSearchDemo, { SPOONACULAR_CREDIT } from "@/components/RecipeSearchDemo"
 import ProSubscriptionCard from "@/components/ProSubscriptionCard"
+import EnhancedIngredientInput from "@/components/EnhancedIngredientInput"
 
-const quickIngredients = [
-  "Chicken",
-  "Eggs",
-  "Milk",
-  "Cheese",
-  "Rice",
-  "Beans",
-  "Tomatoes",
-  "Onions",
-  "Garlic",
-  "Bell Peppers",
-  "Plantains",
-  "Avocado",
-]
+
 
 const sampleRecipes = [
   {
@@ -93,7 +80,6 @@ interface ExternalRecipe {
 }
 
 export default function Home() {
-  const [ingredients, setIngredients] = useState("")
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([])
   const [externalRecipes, setExternalRecipes] = useState<ExternalRecipe[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -108,15 +94,7 @@ export default function Home() {
   })
   const [maintenanceCalories, setMaintenanceCalories] = useState<number | null>(null)
 
-  const addIngredient = (ingredient: string) => {
-    if (!selectedIngredients.includes(ingredient)) {
-      setSelectedIngredients([...selectedIngredients, ingredient])
-    }
-  }
 
-  const removeIngredient = (ingredient: string) => {
-    setSelectedIngredients(selectedIngredients.filter((i) => i !== ingredient))
-  }
 
   const searchExternalRecipes = async () => {
     if (selectedIngredients.length === 0) {
@@ -149,20 +127,7 @@ export default function Home() {
     }
   }
 
-  const handleSubmitIngredients = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (ingredients.trim()) {
-      const newIngredients = ingredients
-        .split(/[,\n\s]+/)
-        .map(ing => ing.trim().toLowerCase())
-        .filter(ing => ing && !selectedIngredients.includes(ing))
-      
-      if (newIngredients.length > 0) {
-        setSelectedIngredients([...selectedIngredients, ...newIngredients])
-        setIngredients("")
-      }
-    }
-  }
+
 
   const calculateTDEE = () => {
     const { age, weight, height, gender, activity } = tdeeData
@@ -225,58 +190,13 @@ export default function Home() {
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">🔍 What&apos;s in your fridge?</h2>
           {showIngredientInput && <RecipeSearchDemo />}
 
-          {/* Chat-style input */}
-          <form onSubmit={handleSubmitIngredients} className="mb-6">
-            <div className="flex gap-2">
-              <Textarea
-                placeholder="Type your ingredients here... (e.g., chicken, rice, tomatoes)"
-                value={ingredients}
-                onChange={(e) => setIngredients(e.target.value)}
-                className="min-h-[60px] rounded-2xl border-2 border-green-200 focus:border-green-500"
-              />
-              <Button type="submit" size="icon" className="rounded-full bg-green-600 hover:bg-green-700">
-                <Send className="h-4 w-4" />
-              </Button>
-            </div>
-          </form>
-
-          {/* Selected ingredients */}
-          {selectedIngredients.length > 0 && (
-            <div className="mb-6">
-              <p className="mb-2 text-sm font-medium text-gray-700">Selected ingredients:</p>
-              <div className="flex flex-wrap gap-2">
-                {selectedIngredients.map((ingredient) => (
-                  <Badge
-                    key={ingredient}
-                    variant="secondary"
-                    className="cursor-pointer rounded-full bg-green-100 text-green-800 hover:bg-green-200"
-                    onClick={() => removeIngredient(ingredient)}
-                  >
-                    {ingredient} ×
-                  </Badge>
-                ))}
-              </div>
-            </div>
+          {/* Enhanced Ingredient Input */}
+          {showIngredientInput && (
+            <EnhancedIngredientInput
+              onIngredientsChange={setSelectedIngredients}
+              selectedIngredients={selectedIngredients}
+            />
           )}
-
-          {/* Quick select ingredients */}
-          <div className="mb-8">
-            <p className="mb-4 text-sm font-medium text-gray-700">Quick select:</p>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-6">
-              {quickIngredients.map((ingredient) => (
-                <Button
-                  key={ingredient}
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full border-green-200 hover:bg-green-50 bg-transparent"
-                  onClick={() => addIngredient(ingredient)}
-                  disabled={selectedIngredients.includes(ingredient)}
-                >
-                  {ingredient}
-                </Button>
-              ))}
-            </div>
-          </div>
 
           <div className="text-center">
             <Button 

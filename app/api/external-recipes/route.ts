@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
+import { normalizeIngredientName } from '../../../lib/ingredient-database';
 
 // Force dynamic rendering for this API route
 export const dynamic = 'force-dynamic';
@@ -119,13 +120,16 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    // Normalize ingredients for better matching
+    const normalizedIngredients = ingredients.split(',').map(ing => normalizeIngredientName(ing.trim())).join(',');
+    
     // Search for recipes by ingredients
     const searchResponse = await axios.get(
       `https://api.spoonacular.com/recipes/findByIngredients`,
       {
         params: {
           apiKey,
-          ingredients: ingredients,
+          ingredients: normalizedIngredients,
           number: parseInt(number),
           ranking: parseInt(ranking),
           ignorePantry: true
